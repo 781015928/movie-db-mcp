@@ -52,6 +52,6 @@ All configuration via env vars. See `.env.example`. The key principle: providers
 
 ## Publishing
 
-`.github/workflows/publish.yml` triggers on `v*` tags or manual dispatch. It runs `release:check` (typecheck + build) then `npm publish --access public` using the `NPM_TOKEN` repo secret. The repo is currently private, so `--provenance` is omitted — add it back once the repo is made public. The `prepublishOnly` script in `package.json` also runs `release:check` as a local safety net.
+`.github/workflows/publish.yml` triggers on `v*` tags or manual dispatch. It runs `release:check` (typecheck + build) then `npm publish --provenance --access public` using the `NPM_TOKEN` repo secret. Provenance works because the repo is public — Sigstore cross-checks the npm publish event against the GitHub Actions OIDC token, and the package page on npmjs.com will display a verified source-link badge. The `prepublishOnly` script in `package.json` also runs `release:check` as a local safety net.
 
 `.npmignore` strips `src/`, `tsconfig.json`, workflows, and tests from the published tarball — only `dist/`, `README.md`, `LICENSE`, and `.env.example` ship.
