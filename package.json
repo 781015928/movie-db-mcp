@@ -1,5 +1,5 @@
 {
-  "name": "@crazypug/movie-db-mcp",
+  "name": "movie-db-mcp",
   "version": "0.1.0",
   "description": "MCP server providing movie metadata (JAV via javstash/javdb, PMV via pmvstash) with two-layer caching",
   "type": "module",
@@ -47,7 +47,6 @@
     "url": "https://github.com/781015928/movie-db-mcp/issues"
   },
   "publishConfig": {
-    "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {

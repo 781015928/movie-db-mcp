@@ -8,7 +8,7 @@ import { StashBoxClient } from "./providers/stashbox.js";
 import { registerJavTools } from "./tools/jav.js";
 import { registerPmvTools } from "./tools/pmv.js";
 
-export const PKG_NAME = "@crazypug/movie-db-mcp";
+export const PKG_NAME = "movie-db-mcp";
 export const PKG_VERSION = "0.1.0";
 
 export async function startServer(): Promise<void> {

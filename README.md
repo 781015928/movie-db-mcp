@@ -1,4 +1,4 @@
-# @crazypug/movie-db-mcp
+# movie-db-mcp
 
 MCP server providing movie metadata from three sources:
 
@@ -13,7 +13,7 @@ Each provider is opt-in via env vars. Results are cached in a two-layer cache (i
 No install required:
 
 ```bash
-npx -y @crazypug/movie-db-mcp
+npx -y movie-db-mcp
 ```
 
 This starts an MCP server on stdio. Configure your MCP client to launch it.
@@ -27,7 +27,7 @@ Add to your MCP config (e.g. `~/Library/Application Support/Claude/claude_deskto
   "mcpServers": {
     "movie-db": {
       "command": "npx",
-      "args": ["-y", "@crazypug/movie-db-mcp"],
+      "args": ["-y", "movie-db-mcp"],
       "env": {
         "JAVSTASH_API_KEY": "your-javstash-jwt-here",
         "PMVSTASH_API_KEY": "your-pmvstash-jwt-here",
