@@ -32,9 +32,7 @@ jobs:
       - name: Verify release candidate
         run: npm run release:check
 
-      # Provenance requires a public source repo. Once this repo is public,
-      # add --provenance back to the publish command below.
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
