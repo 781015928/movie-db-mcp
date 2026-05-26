@@ -1,0 +1,64 @@
+{
+  "name": "@crazypug/movie-db-mcp",
+  "version": "0.1.0",
+  "description": "MCP server providing movie metadata (JAV via javstash/javdb, PMV via pmvstash) with two-layer caching",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "movie-db-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "release:check": "npm run typecheck && npm run build",
+    "prepublishOnly": "npm run release:check"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "movie",
+    "metadata",
+    "jav",
+    "pmv",
+    "stash",
+    "stash-box"
+  ],
+  "author": "Kent Grote",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/781015928/movie-db-mcp.git"
+  },
+  "homepage": "https://github.com/781015928/movie-db-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/781015928/movie-db-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "cheerio": "^1.0.0",
+    "lru-cache": "^11.0.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
