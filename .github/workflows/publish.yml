@@ -16,6 +16,7 @@ jobs:
     timeout-minutes: 15
     environment:
       name: npm-publish
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,8 +24,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version: 22.14.0
           registry-url: https://registry.npmjs.org
+
+      - name: Upgrade npm for trusted publishing
+        run: npm install --global npm@^11.5.1
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
@@ -34,5 +38,3 @@ jobs:
 
       - name: Publish to npm
         run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
